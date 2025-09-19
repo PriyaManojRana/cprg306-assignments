@@ -12,6 +12,6 @@ export default function StudentInfo() {
           This is my repository.
         </Link>
       </p>
-    </div>
-  );
+    </div>
+  );
 }
