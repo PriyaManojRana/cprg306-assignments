@@ -6,7 +6,7 @@ export default function Item({ name, quantity, category }) {
           <h4 className="font-bold text-black">{name}</h4>
           <p className="text-black">Category: {category}</p>
         </div>
-        <span className="bg-blue-500 text-white px-2 py-1 rounded text-sm">
+        <span className="bg-purple-400 text-white px-2 py-1 rounded text-sm">
           Quantity: {quantity}
         </span>
       </div>
