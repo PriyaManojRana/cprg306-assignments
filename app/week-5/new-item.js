@@ -38,7 +38,7 @@ export default function NewItem() {
           placeholder="e.g., milk, 4 L "
           value={name}
           onChange={(e) => setName(e.target.value)}
-          className=" w-full border text-grey-400 border-black-100  rounded-md p-2 text-sm  placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-400"
+          className=" w-full border text-black border-black-100  rounded-md p-2 text-sm  placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-400"
         />
       </div>
 
