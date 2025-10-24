@@ -14,7 +14,7 @@ export default function Page() {
 
   return (
     <main className="bg-slate-950 p-4 min-h-screen">
-      <h1 className="text-3xl font-bold text-white mb-6 text-center">Week-7 "Shopping List"</h1>
+      <h1 className="text-3xl font-bold text-white mb-3 text-center">Week-7 "Shopping List"</h1>
       
       <div className="max-w-md mx-auto mb-8">
         <NewItem onAddItem={handleAddItem} />
