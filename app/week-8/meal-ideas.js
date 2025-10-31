@@ -27,12 +27,12 @@ export default function MealIdeas({ ingredient }) {
 
   useEffect(() => {
     loadMealIdeas();
-  }, [ingredient]);
+  }, [loadMealIdeas]);
 
   return (
     <div className="text-white p-4">
       <h2 className="text-2xl font-bold mb-3">
-        Meal ideas for "{ingredient}"
+        Meal ideas for ({ingredient})
       </h2>
 
       {!ingredient && <p className="text-gray-300">Choose the item for ideas.</p>}
