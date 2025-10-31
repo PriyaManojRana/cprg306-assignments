@@ -35,7 +35,7 @@ export default function MealIdeas({ ingredient }) {
         Meal ideas for "{ingredient}"
       </h2>
 
-      {!ingredient && <p className="text-gray-300">Select an ingredient to see meal ideas.</p>}
+      {!ingredient && <p className="text-gray-300">Choose the item for ideas.</p>}
 
       {ingredient && meals.length === 0 && (
         <p className="text-gray-300">No meals found.</p>

@@ -1,4 +1,3 @@
-/* eslint-disable react/no-unescaped-entities */
 "use client";
 
 import { useState } from "react";
@@ -15,11 +14,10 @@ export default function Page() {
     setItems([...items, newItem]);
   };
 
-  // When an item is clicked in the list
+  
   const handleItemSelect = (item) => {
     if (!item || !item.name) return;
-
-    // Clean up the item name (remove commas, emojis, extra spaces)
+    
     let cleanedName = item.name.split(",")[0];
     cleanedName = cleanedName.replace(
       /([\u2700-\u27BF]|[\uE000-\uF8FF]|[\uD83C-\uDBFF\uDC00-\uDFFF])+/g,
@@ -33,19 +31,18 @@ export default function Page() {
   return (
     <main className="bg-slate-950 p-4 min-h-screen flex flex-col items-center justify-center">
       <h1 className="text-3xl font-bold text-white mb-6 text-center">
-        Week-8 "Shopping List with Meal Ideas"
+        Shopping List + Meal Ideas
       </h1>
 
       <div className="flex flex-col md:flex-row gap-8 justify-center items-start w-full max-w-5xl">
-        {/* Left Side: NewItem + ItemList */}
+        
         <div className="w-full md:w-1/2">
           <div className="mb-6">
             <NewItem onAddItem={handleAddItem} />
           </div>
           <ItemList items={items} onItemSelect={handleItemSelect} />
         </div>
-
-        {/* Right Side: MealIdeas */}
+     
         <div className="w-full md:w-1/2">
           <MealIdeas ingredient={selectedItemName} />
         </div>
