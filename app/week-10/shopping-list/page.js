@@ -4,16 +4,23 @@ import { useState } from "react";
 import NewItem from "./new-item";
 import ItemList from "./item-list";
 import MealIdeas from "./meal-ideas";
-import itemsData from "./items.json";
+import { getItems, addItem } from "../_services/shopping-list-service";
+import { useEffect } from "react";
+import { useUserAuth } from "../../contexts/AuthContext";
+
 
 export default function Page() {
-  const [items, setItems] = useState(itemsData);
+ 
+  const [items, setItems] = useState([]);
   const [selectedItemName, setSelectedItemName] = useState("");
+  const { user } = useUserAuth();
+  const handleAddItem = async (newItem) => {
+  if (!user) return;
 
-  const handleAddItem = (newItem) => {
-    setItems([...items, newItem]);
-  };
+  const itemId = await addItem(user.uid, newItem);  
 
+  setItems([...items, { id: itemId, ...newItem }]);
+};
   
   const handleItemSelect = (item) => {
     if (!item || !item.name) return;
@@ -27,6 +34,20 @@ export default function Page() {
 
     setSelectedItemName(cleanedName);
   };
+
+  
+
+const loadItems = async () => {
+  if (!user) return;
+
+  const userItems = await getItems(user.uid);
+  setItems(userItems);
+};
+
+useEffect(() => {
+  loadItems();
+}, [user]);
+
 
   return (
     <main className="bg-slate-950 p-4 min-h-screen flex flex-col items-center justify-center">
